@@ -48,6 +48,12 @@ angular.module('app.routes', [])
       controller: 'partnersignupCtrl'
     })
 
+    .state('uploadforpartner', {
+      url: '/uploadpartnerdata',
+      templateUrl: 'templates/uploadforpartner.html',
+      controller: 'uploadforpartnerCtrl'
+    })
+
 
   .state('offers', {
     url: '/page8',

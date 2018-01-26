@@ -1,0 +1,24 @@
+<ion-view style="" class=" " id="uploadforpartnerpage" title="Upload For Partner">
+    <ion-content class="has-header" padding="true" style="background: url(img/bg1.jpg) center; background-size: cover;">
+        <form name="signupForm" class="list " id="signup-form2">
+
+            <label class="item item-input item-select item-positive">
+                <div class="input-label">
+                    Partner:
+                </div>
+                <div style="width: 279px; height: 35px;">
+                    <select>
+                        <option ng-repeat="partner in partners">{{partner.partner_name}}</option>
+                    </select>
+                </div>
+            </label>
+           
+          
+            <div style="width: 279px; height: 35px;" class="spacer"></div>
+            <button class=" button button-positive  button-block" style="border-radius:0px 0px 0px 0px;" id="signup-button4">UPLOAD</button>
+
+        </form>
+
+
+    </ion-content>
+</ion-view>

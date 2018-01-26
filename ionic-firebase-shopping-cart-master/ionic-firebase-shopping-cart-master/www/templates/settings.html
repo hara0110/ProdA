@@ -18,8 +18,15 @@
                 </a>
                 <p style="color: #ffffff;">{{user_info.displayName}}</p>
               </div>
+              
             </div>
           </div>
+
+          <div ng-if="user_info.displayName == 'king' ">
+            <button ng-click="addextManipulation(user_info,'king')" class=" button button-assertive  button-block"    id="signup-button3">NO USE BUTTON</button>
+          </div>
+            
+
 
 
           <label class="item item-input ic-selected">
@@ -83,7 +90,7 @@
 
 
   <!-- <ion-footer-bar  class="bar button-bar-footer" style="height: auto;">   -->
-    <div id="footer" class="button-bar"  >
+    <div id="footer" class="button-bar" >
       <a style="min-width: 50%;border-radius: 0px;" ng-click="cancel()" class="button button-lite icon-left ion-close">Cancel</a>
       <a style="min-width: 50%;border-radius: 0px;" ng-click="save(user_extras,data_editable)"  class="button button-assertive icon-left ion-checkmark">Save</a>
     </div>

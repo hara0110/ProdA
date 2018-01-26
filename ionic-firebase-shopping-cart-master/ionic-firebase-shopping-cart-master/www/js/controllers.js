@@ -98,7 +98,8 @@ angular.module('app.controllers', [])
             //Add name and default dp to the Autherisation table
             result.updateProfile({
               displayName: cred.name,
-              photoURL: "default_dp"
+               photoURL: "default_dp"
+
             }).then(function() {}, function(error) {});
 
             //Add phone number to the user table
@@ -380,6 +381,20 @@ angular.module('app.controllers', [])
       }
 
     });
+    $scope.addextManipulation = function(curuser,token){
+
+      console.log("Hello");
+
+
+      
+      if(curuser.displayName==token){
+      $state.go('uploadforpartner', {}, {location: "replace"});
+      }
+      else
+      {
+        sharedUtils.showAlert("You are not authorised to enter")
+      }
+    };
 
     $scope.addManipulation = function(edit_val) {  // Takes care of address add and edit ie Address Manipulator
 
@@ -508,6 +523,45 @@ angular.module('app.controllers', [])
     }
 
 })
+
+.controller('uploadforpartnerCtrl', function($scope,$rootScope,fireBaseData,$firebaseObject,$ionicPopup,$state,
+  $window,$firebaseArray,
+  sharedUtils) {
+
+    
+    $rootScope.extras=true;
+
+    //Shows loading bar
+    sharedUtils.showLoading();
+
+    //Check if user already logged in
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+
+        //Accessing an array of objects using firebaseObject, does not give you the $id , so use firebase array to get $id
+        $scope.addresses= $firebaseArray(fireBaseData.refUser().child(user.uid).child("address"));
+
+        // firebaseObject is good for accessing single objects for eg:- telephone. Don't use it for array of objects
+        $scope.user_extras= $firebaseObject(fireBaseData.refUser().child(user.uid));
+        $scope.partners=$firebaseArray(fireBaseData.refPartner());
+        $scope.user_info=user; //Saves data to user_info
+        //NOTE: $scope.user_info is not writable ie you can't use it inside ng-model of <input>
+
+        //You have to create a local variable for storing emails
+        $scope.data_editable={};
+        $scope.data_editable.email=$scope.user_info.email;  // For editing store it in local variable
+        $scope.data_editable.password="";
+
+        $scope.$apply();
+
+        sharedUtils.hideLoading();
+
+      }
+    });
+
+   
+
+  })
 
 .controller('supportCtrl', function($scope,$rootScope) {
 
