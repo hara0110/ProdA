@@ -138,7 +138,7 @@ angular.module('app.controllers', [])
    
   
     $scope.partnersignup= function(formName,partnerobj){
-      console.log("Take me to a new Page");
+      console.log("Welcome : ");
       console.log(partnerobj.name);
       fireBaseData.refPartner().push({    
         partner_name: partnerobj.name,
@@ -147,6 +147,7 @@ angular.module('app.controllers', [])
         partner_email: partnerobj.email,
         partner_password: partnerobj.password
       });     
+      sharedUtils.showAlert("Your request has been registered , we will contact you soon");
     }
   })
 
