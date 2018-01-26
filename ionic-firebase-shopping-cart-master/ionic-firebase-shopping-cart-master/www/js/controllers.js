@@ -453,8 +453,10 @@ angular.module('app.controllers', [])
       if(editable.password!="" && editable.password!=null  ){
         //Update Password in UserAuthentication Table
         try{
-        firebase.auth().currentUser.updatePassword(editable.password).then(function(ok) {}, function(error) {});
+        const a=firebase.auth().currentUser.updatePassword(editable.password).then(function(ok) {}, function(error) {});
         sharedUtils.showAlert("Account","Password Updated");
+        console.log(a);
+        
         }
         catch(e){
          console.log(e);
