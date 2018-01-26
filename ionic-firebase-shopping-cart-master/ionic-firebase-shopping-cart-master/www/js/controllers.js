@@ -125,7 +125,29 @@ angular.module('app.controllers', [])
       }
 
     }
+    $scope.signupPartner= function(){
+      console.log("Take me to a new Page");
+      $state.go('partnersignup', {}, {location: "replace"});
+    }
+   
 
+  })
+
+.controller('partnersignupCtrl',function($scope,$rootScope,$ionicSideMenuDelegate,fireBaseData,$state,
+  $ionicHistory,$firebaseArray,sharedCartService,sharedUtils) {
+   
+  
+    $scope.partnersignup= function(formName,partnerobj){
+      console.log("Take me to a new Page");
+      console.log(partnerobj.name);
+      fireBaseData.refPartner().push({    
+        partner_name: partnerobj.name,
+        partner_pantryname: partnerobj.pantryname,
+        partner_phone: partnerobj.phone,
+        partner_email: partnerobj.email,
+        partner_password: partnerobj.password
+      });     
+    }
   })
 
 .controller('menu2Ctrl', function($scope,$rootScope,$ionicSideMenuDelegate,fireBaseData,$state,
@@ -616,6 +638,7 @@ angular.module('app.controllers', [])
             address: res.address,
             pin: res.pin,
             phone: res.phone
+
           });
         }
 

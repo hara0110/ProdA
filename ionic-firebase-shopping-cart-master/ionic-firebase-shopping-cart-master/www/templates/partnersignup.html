@@ -1,35 +1,40 @@
-<ion-view style="" class=" " id="page6" title="Signup">
+<ion-view style="" class=" " id="partnerpage" title="Partner With Us">
     <ion-content class="has-header" padding="true" style="background: url(img/bg1.jpg) center; background-size: cover;">
-        <form name="signupForm" class="list " id="signup-form2">
-            <ion-list class=" " id="signup-list3">
+        <form name="partnersignupForm" class="list " id="signup-form2">
+            <ion-list class=" " id="partnersignup-list3">
 
 			   <div class="app-icon"></div>
 
               <label class="item item-input item-floating-label">
                 <span style="color: #9F9F9F;"  class="input-label">Name</span>
-                <input style="color: #ffffff;" ng-model="user.name" type="text" placeholder="Name">
+                <input style="color: #ffffff;" ng-model="partner.name" type="text" placeholder="Name">
+              </label>
+
+              <label class="item item-input item-floating-label">
+                <span style="color: #9F9F9F;"  class="input-label">Pantry Name</span>
+                <input style="color: #ffffff;" ng-model="partner.pantryname" type="text" placeholder="Pantry Name">
               </label>
 
               <label class="item item-input item-floating-label">
                 <span style="color: #9F9F9F;" class="input-label">Phone</span>
-                <input style="color: #ffffff;" ng-model="user.phone" type="tel" placeholder="Phone">
+                <input style="color: #ffffff;" ng-model="partner.phone" type="tel" placeholder="Phone">
               </label>
 
               <label class="item item-input item-floating-label">
                   <span style="color: #9F9F9F;" class="input-label">Email</span>
-                  <input style="color: #ffffff;" ng-model="user.email" type="email" placeholder="Email">
+                  <input style="color: #ffffff;" ng-model="partner.email" type="email" placeholder="Email">
               </label>
 
               <label class="item item-input item-floating-label">
                   <span style="color: #9F9F9F;" class="input-label">Password</span>
-                  <input style="color: #ffffff;" ng-model="user.password" type="password" placeholder="Password">
+                  <input style="color: #ffffff;" ng-model="partner.password" type="password" placeholder="Password">
               </label>
 
 
             </ion-list>
             <div style="width: 279px; height: 35px;" class="spacer"></div>
-            <button ng-click="signupEmail(signupForm,user)" class=" button button-assertive  button-block  icon-left ion-ios-email-outline " style="border-radius:0px 0px 0px 0px;" id="signup-button3">SIGN UP WITH YOUR EMAIL</button>
-            <button class=" button button-positive  button-block icon-left ion-social-facebook " style="border-radius:0px 0px 0px 0px;" id="signup-button4">SIGN UP WITH FACEBOOK</button>
+            <button ng-click="partnersignup(partnersignupForm,partner)" class=" button button-assertive  button-block  icon-left ion-ios-email-outline " style="border-radius:0px 0px 0px 0px;" id="partnersignup-button3">SIGN UP WITH YOUR EMAIL</button>
+            
         </form>
     </ion-content>
 </ion-view>

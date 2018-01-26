@@ -42,6 +42,12 @@ angular.module('app.routes', [])
       controller: 'menu2Ctrl'
     })
 
+    .state('partnersignup', {
+      url: '/partnersignuppage',
+      templateUrl: 'templates/partnersignup.html',
+      controller: 'partnersignupCtrl'
+    })
+
 
   .state('offers', {
     url: '/page8',
