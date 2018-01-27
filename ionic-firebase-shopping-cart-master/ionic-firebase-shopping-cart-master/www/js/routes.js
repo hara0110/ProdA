@@ -42,6 +42,12 @@ angular.module('app.routes', [])
       controller: 'menu2Ctrl'
     })
 
+    .state('customizemenu1', {
+      url: '/customizemenu1page',
+      templateUrl: 'templates/customizemenu1.html',
+      controller: 'customizemenu1Ctrl'
+    })
+
     .state('partnersignup', {
       url: '/partnersignuppage',
       templateUrl: 'templates/partnersignup.html',
