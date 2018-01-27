@@ -10,6 +10,7 @@ angular.module('app.services', [])
     refFeatured = new Firebase("https://proda-c79bf.firebaseio.com/featured"),
     refMenu = new Firebase("https://proda-c79bf.firebaseio.com/menu");
     refPartner =new Firebase("https://proda-c79bf.firebaseio.com/partner");
+    refFoodItems=new Firebase("https://proda-c79bf.firebaseio.com/food_items");
   return {
     ref: function() {
       return ref;
@@ -34,6 +35,9 @@ angular.module('app.services', [])
     },
     refPartner: function() {
       return refPartner;
+    },
+    refFoodItems: function() {
+      return refFoodItems;
     }
   }
 })

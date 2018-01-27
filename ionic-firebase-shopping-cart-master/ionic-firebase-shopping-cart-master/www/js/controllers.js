@@ -82,15 +82,6 @@ angular.module('app.controllers', [])
 
   })
 
-  .controller('customizemenu1Ctrl', function ($scope, $rootScope, sharedUtils, $ionicSideMenuDelegate,
-    $state, fireBaseData, $ionicHistory) {
-    $rootScope.extras = false; // For hiding the side bar and nav icon
-
-   })
-
-
-
-
   .controller('signupCtrl', function ($scope, $rootScope, sharedUtils, $ionicSideMenuDelegate,
     $state, fireBaseData, $ionicHistory) {
     $rootScope.extras = false; // For hiding the side bar and nav icon
@@ -532,44 +523,7 @@ angular.module('app.controllers', [])
 
   })
 
-  .controller('uploadforpartnerCtrl', function ($scope, $rootScope, fireBaseData, $firebaseObject, $ionicPopup, $state,
-    $window, $firebaseArray,
-    sharedUtils) {
-
-
-    $rootScope.extras = true;
-
-    //Shows loading bar
-    sharedUtils.showLoading();
-
-    //Check if user already logged in
-    firebase.auth().onAuthStateChanged(function (user) {
-      if (user) {
-
-        //Accessing an array of objects using firebaseObject, does not give you the $id , so use firebase array to get $id
-        $scope.addresses = $firebaseArray(fireBaseData.refUser().child(user.uid).child("address"));
-
-        // firebaseObject is good for accessing single objects for eg:- telephone. Don't use it for array of objects
-        $scope.user_extras = $firebaseObject(fireBaseData.refUser().child(user.uid));
-        $scope.partners = $firebaseArray(fireBaseData.refPartner());
-        $scope.user_info = user; //Saves data to user_info
-        //NOTE: $scope.user_info is not writable ie you can't use it inside ng-model of <input>
-
-        //You have to create a local variable for storing emails
-        $scope.data_editable = {};
-        $scope.data_editable.email = $scope.user_info.email;  // For editing store it in local variable
-        $scope.data_editable.password = "";
-
-        $scope.$apply();
-
-        sharedUtils.hideLoading();
-
-      }
-    });
-
-
-
-  })
+ 
 
   .controller('supportCtrl', function ($scope, $rootScope) {
 
@@ -712,3 +666,82 @@ angular.module('app.controllers', [])
 
   })
 
+  .controller('uploadforpartnerCtrl', function ($scope, $rootScope, fireBaseData, $firebaseObject, $ionicPopup, $state,
+    $window, $firebaseArray,
+    sharedUtils) {
+
+
+    $rootScope.extras = true;
+
+    //Shows loading bar
+    sharedUtils.showLoading();
+
+    //Check if user already logged in
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        //Accessing an array of objects using firebaseObject, does not give you the $id , so use firebase array to get $id       
+        // firebaseObject is good for accessing single objects for eg:- telephone. Don't use it for array of objects
+        $scope.user_extras = $firebaseObject(fireBaseData.refUser().child(user.uid));
+        $scope.partners = $firebaseArray(fireBaseData.refPartner());
+        $scope.user_info = user; //Saves data to user_info
+        //NOTE: $scope.user_info is not writable ie you can't use it inside ng-model of <input>
+
+        //You have to create a local variable for storing emails
+        $scope.data_editable = {};
+        $scope.data_editable.email = $scope.user_info.email;  // For editing store it in local variable
+        $scope.data_editable.password = "";
+
+        $scope.$apply();
+
+        sharedUtils.hideLoading();
+
+      }
+    });
+
+  })
+ .controller('customizemenu1Ctrl',function ($scope,sharedCartService, $rootScope, fireBaseData, $firebaseObject, $ionicPopup, $state,
+  $window, $firebaseArray,sharedUtils) {
+    $rootScope.extras = true;
+
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+
+        $scope.cart = sharedCartService.cart_items;  // Loads users cart
+
+        $scope.get_qty = function () {
+          $scope.total_qty = 0;
+          $scope.total_amount = 0;
+
+          for (var i = 0; i < sharedCartService.cart_items.length; i++) {
+            $scope.total_qty += sharedCartService.cart_items[i].item_qty;
+            $scope.total_amount += (sharedCartService.cart_items[i].item_qty * sharedCartService.cart_items[i].item_price);
+          }
+          return $scope.total_qty;
+        };
+      }
+      //We dont need the else part because indexCtrl takes care of it
+    });
+
+    // On Loggin in to menu page, the sideMenu drag state is set to true
+    // $ionicSideMenuDelegate.canDragContent(true);
+    $rootScope.extras = true;
+
+    $scope.removeFromCart = function (c_id) {
+      sharedCartService.drop(c_id);
+    };
+
+    $scope.inc = function (c_id) {
+      sharedCartService.increment(c_id);
+    };
+
+    $scope.dec = function (c_id) {
+      sharedCartService.decrement(c_id);
+    };
+
+    $scope.checkout = function () {
+      $state.go('checkout', {}, { location: "replace" });
+    };
+
+   
+
+ })
