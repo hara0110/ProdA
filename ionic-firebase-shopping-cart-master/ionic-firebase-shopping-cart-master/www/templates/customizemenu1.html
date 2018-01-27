@@ -26,10 +26,22 @@
     
     
             </ion-item>
-    
+            
         </ion-list>
+        <ion-list>
+           
+           <ion-item>
+                <a class="badge badge-balanced" style="position: absolute;left:0;" >
+                        You Pay :
+                  </a>
+            <a class="badge badge-balanced" style="position: absolute;right:0;" >
+                    Total ( {{get_qty()}} ) =    {{total_amount}}
+              </a>
+            </ion-item>
+            </ion-list>
 
-
+        </ion-list>
+       
 
 
       <button ng-click="checkout()" class="button button-assertive button-block ">Check Out</button>
