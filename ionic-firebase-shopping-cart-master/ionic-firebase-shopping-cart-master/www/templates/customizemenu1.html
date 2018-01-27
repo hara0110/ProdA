@@ -1,7 +1,7 @@
-<ion-view style="" class=" " id="customizemenu1page" title="Customize Your Lunch">
-    <ion-content class="has-header" padding="true">
+<ion-view style="" class=" " id="customizemenu1page" title="Customize Your Lunch" >
+    <ion-content class="has-header" padding="true" >
 
-   <!-- <ion-card>
+        <!-- <ion-card>
       <ion-list>
             <ion-item ng-repeat="item in cart" >
                 <p> {{item.item_name}} x {{item.item_qty}} </p>
@@ -11,49 +11,50 @@
       </ion-list>
     </ion-card> -->
 
-    <ion-list ng-repeat="item in cart">
+        <ion-list ng-repeat="item in cart">
 
-            <ion-item class="item-thumbnail-left" >
-    
-              <img  ng-src="{{'img/fk/'+ item.item_image +'.jpg'}}" >
-    
-              <a class="badge badge-balanced" style="position: absolute;right:0;" >
-                    {{ item.item_qty *  item.item_price  }}
-              </a>
-    
-              <h4> {{item.item_name}} </h4>
-              <p>Qty: {{item.item_qty}} X Price: &#8377; {{item.item_price}} =</p>
-    
-    
+            <ion-item class="item-thumbnail-left">
+
+                <img ng-src="{{'img/fk/'+ item.item_image +'.jpg'}}" style="height: 51px;width: 77px;">
+
+                <a class="badge badge-balanced" style="position: absolute;right:0;">
+                    {{ item.item_qty * item.item_price }}
+                </a>
+
+                <h4> {{item.item_name}} </h4>
+                <p>Qty: {{item.item_qty}} X Price: &#8377; {{item.item_price}} =</p>
+
+
             </ion-item>
-            
-        </ion-list>
-        <ion-list>
-           
-           <ion-item>
-                <a class="badge badge-balanced" style="position: absolute;left:0;" >
-                        You Pay :
-                  </a>
-            <a class="badge badge-balanced" style="position: absolute;right:0;" >
-                    Total ( {{get_qty()}} ) =    {{total_amount}}
-              </a>
-            </ion-item>
-            </ion-list>
+            <!-- <div style="height: 5px;" class="spacer"></div> -->
 
         </ion-list>
-       
+        <ion-list >
 
+            <ion-item >
+                <a class="badge badge-balanced" style="position: absolute;left:0;">
+                    You Pay :
+                </a>
+                <a class="badge badge-balanced" style="position: absolute;right:0;">
+                    Total ( {{get_qty()}} ) = {{total_amount}}
+                </a>
+            </ion-item>
+        </ion-list>
+        <button ng-click="total_amount > 0 ? checkout() : setDefault()" ng-class=" total_amount > 0 ? 'button button-assertive button-block': 'button button-positive button-block'">
+                <span ng-bind-html=" total_amount > 0 ? 'CHECK OUT' : 'Initialize For Me' "></span>
+        </button>
+        <!-- <button ng-click="setDefault()" ng-if="total_amount == 0" class="button button-positive button-block ">Initialize For Me</button> -->
 
-      <button ng-click="checkout()" class="button button-assertive button-block ">Check Out</button>
 
      
 
-      <div ng-repeat="item in cart" >
+
+        <div ng-repeat="item in cart" >
         <div class="list " >
           <div style="min-height: 30px;" class="item item-divider">{{item.item_name}} </div>
           <div class="item item-body" >
 
-            <img ng-src="{{'img/fk/'+ item.item_image +'.jpg'}}" width="25%" height="auto" style="box-shadow: none;">
+            <img ng-src="{{'img/fk/'+ item.item_image +'.jpg'}}" width="25%" height="10%" style="box-shadow: none;">
             <form class="list"></form>
             <div>
               <p>{{item.item_qty}} x &#8377; {{item.item_price}} =

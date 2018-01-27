@@ -1,0 +1,168 @@
+{
+  "cart" : {
+    "GjhZAQmiBISs0lZ1eEwopKLMw9z2" : {
+      "item4" : {
+        "item_image" : "roti",
+        "item_name" : "Roti",
+        "item_price" : 8,
+        "item_qty" : 2
+      },
+      "item5" : {
+        "item_image" : "rice",
+        "item_name" : "Plain Rice",
+        "item_price" : 40,
+        "item_qty" : 1
+      }
+    }
+  },
+  "category" : {
+    "cat01" : "Burger",
+    "cat02" : "Drinks"
+  },
+  "featured" : {
+    "item1" : "slide_1",
+    "item2" : "slide_2"
+  },
+  "food_items" : {
+    "Rice" : {
+      "fried_rice" : "rice",
+      "plain_rice" : "rice"
+    },
+    "roti" : {
+      "paratha" : "roti",
+      "phulka" : "roti"
+    }
+  },
+  "menu" : {
+    "item4" : {
+      "available" : true,
+      "category" : "cat02",
+      "description" : "item4 description",
+      "image" : "roti",
+      "name" : "Roti",
+      "price" : 8,
+      "stock" : 100
+    },
+    "item5" : {
+      "available" : true,
+      "category" : "cat01",
+      "description" : "item5 description",
+      "image" : "rice",
+      "name" : "Plain Rice",
+      "price" : 40,
+      "stock" : 100
+    },
+    "item6" : {
+      "available" : true,
+      "category" : "cat02",
+      "description" : "item6 description",
+      "image" : "dal",
+      "name" : "Dal",
+      "price" : 20,
+      "stock" : 100
+    },
+	"item7" : {
+      "available" : true,
+      "category" : "cat02",
+      "description" : "item6 description",
+      "image" : "paneer_curry",
+      "name" : "Paneer Curry",
+      "price" : 20,
+      "stock" : 100
+    },
+	"item8" : {
+      "available" : true,
+      "category" : "cat02",
+      "description" : "item6 description",
+      "image" : "chicken_curry",
+      "name" : "Chicken Curry",
+      "price" : 20,
+      "stock" : 100
+    }
+  },
+  "orders" : {
+    "-L3l8FLcPuJHrNQwxRcI" : {
+      "address_id" : "-L3l63KFAljsannFsty_",
+      "item_qty" : 1,
+      "payment_id" : "CREDIT",
+      "product_id" : "item1",
+      "product_image" : "chicken_maharaja",
+      "product_name" : "New Chicken Maharaja",
+      "product_price" : 130,
+      "status" : "Queued",
+      "user_id" : "GjhZAQmiBISs0lZ1eEwopKLMw9z2",
+      "user_name" : "king"
+    },
+    "-L3lkVzQrkV_nGLzay7r" : {
+      "address_id" : "-L3l84dd7mTrq0N445yc",
+      "item_qty" : 1,
+      "payment_id" : "NETBANK",
+      "product_id" : "item2",
+      "product_image" : "big_spicy_chicken_wrap",
+      "product_name" : "Big Spicy Chicken Wrap",
+      "product_price" : 120,
+      "status" : "Queued",
+      "user_id" : "GjhZAQmiBISs0lZ1eEwopKLMw9z2",
+      "user_name" : "king"
+    }
+  },
+  "partner" : {
+    "-L3m5OSENG0c3CJup0E5" : {
+      "partner_email" : "test@test.com",
+      "partner_food_items" : {
+        "roti" : {
+          "Paratha" : "Paratha",
+          "Phulka" : "Phulka"
+        }
+      },
+      "partner_name" : "Ganesha",
+      "partner_pantryname" : "Ganesha Caters",
+      "partner_password" : "ganeshganesh",
+      "partner_phone" : "7205356835"
+    },
+    "-L3rl9R5zt7OHIVsLKgz" : {
+      "partner_email" : "test@test.com",
+      "partner_name" : "Test",
+      "partner_pantryname" : "Test1",
+      "partner_password" : "testtest",
+      "partner_phone" : "77777777777"
+    }
+  },
+  "users" : {
+    "GjhZAQmiBISs0lZ1eEwopKLMw9z2" : {
+      "address" : {
+        "-L3nnvmtFyv8pp21q_pz" : {
+          "address" : "asda",
+          "nickname" : "asda",
+          "phone" : 12312,
+          "pin" : 12312
+        },
+        "-L3o1XFdevLGHJJ_M48_" : {
+          "address" : "asd",
+          "nickname" : "a11",
+          "phone" : 4444444444,
+          "pin" : 5454
+        },
+        "-L3sua0sHjFKexiF2_z-" : {
+          "address" : "tstst",
+          "nickname" : "test",
+          "phone" : 5454545,
+          "pin" : 545454
+        },
+        "-L3t4GY6DB8UkmuJO2SG" : {
+          "address" : "KJSDJ",
+          "nickname" : "asjd",
+          "phone" : 51555,
+          "pin" : 1111515
+        }
+      },
+      "telephone" : "4444444444"
+    },
+    "ioFWAWcoKbVCkj8Q6P4T8A4s3Gn2" : {
+      "telephone" : "08553554892"
+    },
+    "sJo4fedAKqMUzJnGxVh6tZ6lOpt1" : {
+      "telephone" : "9861266168"
+    }
+  }
+}

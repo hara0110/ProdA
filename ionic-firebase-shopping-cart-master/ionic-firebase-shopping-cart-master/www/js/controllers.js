@@ -198,6 +198,7 @@ angular.module('app.controllers', [])
 
     };
     $scope.addToCart = function (item) {
+      console.log(item);
       sharedCartService.add(item);
     };
 
@@ -702,7 +703,7 @@ angular.module('app.controllers', [])
  .controller('customizemenu1Ctrl',function ($scope,sharedCartService, $rootScope, fireBaseData, $firebaseObject, $ionicPopup, $state,
   $window, $firebaseArray,sharedUtils) {
     $rootScope.extras = true;
-
+    
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
 
@@ -718,6 +719,7 @@ angular.module('app.controllers', [])
           }
           return $scope.total_qty;
         };
+           
       }
       //We dont need the else part because indexCtrl takes care of it
     });
@@ -736,10 +738,23 @@ angular.module('app.controllers', [])
 
     $scope.dec = function (c_id) {
       sharedCartService.decrement(c_id);
+     
     };
 
     $scope.checkout = function () {
       $state.go('checkout', {}, { location: "replace" });
+    };
+    $scope.menu1 = $firebaseArray(fireBaseData.refMenu());
+    $scope.setDefault=  function(){      
+      sharedUtils.showLoading();
+     for (i = 0; i < $scope.menu1.length; i++) { 
+        sharedCartService.add($scope.menu1[i]);
+        
+    }
+    sharedUtils.hideLoading();
+    sharedUtils.showAlert("We Know your taste.. Somewhat ;)\nBut please select the quantity");
+    
+               
     };
 
    
