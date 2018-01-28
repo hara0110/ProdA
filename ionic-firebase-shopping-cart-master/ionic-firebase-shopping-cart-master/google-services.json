@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "36643177662",
+    "firebase_url": "https://proda-c79bf.firebaseio.com",
+    "project_id": "proda-c79bf",
+    "storage_bucket": "proda-c79bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36643177662:android:ce7c9fce82789799",
+        "android_client_info": {
+          "package_name": "com.ionicframework.wheelstracer01101992"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "36643177662-cil39rrnbif5gt4gnhvnj0shmofcuv2r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2Dr0EphSljHg8om3snltqyK5Q_5ENrFE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

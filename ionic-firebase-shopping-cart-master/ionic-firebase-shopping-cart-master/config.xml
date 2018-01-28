@@ -1,12 +1,18 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ionicframework.foodkart116068" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>foodkart</name>
+<widget id="com.ionicframework.wheelstracer01101992" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Wheelstracer</name>
     <description>
-        An Ionic Framework and Cordova project.
+       Wheelstracer
     </description>
-    <author email="you@example.com" href="http://example.com.com/">
-      Your Name Here
+    <author email="write2hara@gmail.com" href="http://example.com.com/">
+      Hara Prasad Rath
     </author>
+    <universal-links>
+    <host name="https://bf3z3.app.goo.gl/" scheme="https" />
+    <host name="proda-c79bf.firebaseapp.com" scheme="https">
+        <path url="/__/auth/callback"/>
+    </host>
+</universal-links>
     <content src="index.html" />
     <access origin="*" />
     <preference name="webviewbounce" value="false" />
@@ -30,4 +36,7 @@
     <preference name="xwalkMode" value="embedded" />
     <preference name="xwalkMultipleApk" value="true" />
     <plugin name="cordova-plugin-camera" spec="^4.0.1" />
+    <plugin name="cordova-plugin-buildinfo" spec="^2.0.1" />
+    <plugin name="cordova-universal-links-plugin" spec="^1.2.1" />
+    <plugin name="cordova-plugin-browsertab" spec="^0.2.0" />
 </widget>
