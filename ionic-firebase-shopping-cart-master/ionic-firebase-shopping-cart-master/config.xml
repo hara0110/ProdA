@@ -8,11 +8,11 @@
       Hara Prasad Rath
     </author>
     <universal-links>
-    <host name="https://bf3z3.app.goo.gl/" scheme="https" />
-    <host name="proda-c79bf.firebaseapp.com" scheme="https">
-        <path url="/__/auth/callback"/>
-    </host>
-</universal-links>
+        <host name="https://bf3z3.app.goo.gl/" scheme="https" />
+        <host name="proda-c79bf.firebaseapp.com" scheme="https">
+            <path url="/__/auth/callback" />
+        </host>
+    </universal-links>
     <content src="index.html" />
     <access origin="*" />
     <preference name="webviewbounce" value="false" />
