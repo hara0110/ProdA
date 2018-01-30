@@ -225,13 +225,6 @@ margin-top:10px;
 
 
 
-
-
-
-
-
-
-
 /*New Profile cover page*/
 
 
@@ -244,6 +237,24 @@ margin-top:10px;
   padding: 5px;
   text-align: center;
 }
+
+
+.profile-nav .user-heading-welcome {
+    /*background: #387ef5;*/
+    background-image: url('../img/welcomebg.jpg');   
+    color: #fff;
+    border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .profile-nav .user-heading-welcome.round a  {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border: 10px solid rgba(255,255,255,0.3);
+    display: inline-flex;
+  }
 
 .profile-nav .user-heading.round a  {
   border-radius: 50%;
@@ -258,6 +269,13 @@ margin-top:10px;
   border-radius: 50%;
   -webkit-border-radius: 50%;
 }
+
+.profile-nav .user-heading-welcome a img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+  }
 
 
 
@@ -286,7 +304,7 @@ margin-top:10px;
 .support-nav .user-heading.round a  {
   border-radius: 50%;
   -webkit-border-radius: 50%;
-  border: 10px solid rgba(255,255,255,0.3);
+  border: 10px solid rgba(255, 255, 255, 0.6);
   display: inline-block;
 }
 
@@ -296,3 +314,4 @@ margin-top:10px;
   border-radius: 50%;
   -webkit-border-radius: 50%;
 }
+

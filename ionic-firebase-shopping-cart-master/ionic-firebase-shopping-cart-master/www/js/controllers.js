@@ -28,7 +28,7 @@ angular.module('app.controllers', [])
         $ionicSideMenuDelegate.canDragContent(true);  // Sets up the sideMenu dragable
         $rootScope.extras = true;
         sharedUtils.hideLoading();
-        $state.go('menu2', {}, { location: "replace" });
+        $state.go('welcome', {}, { location: "replace" });
 
       }
     });
@@ -52,7 +52,7 @@ angular.module('app.controllers', [])
           });
           $rootScope.extras = true;
           sharedUtils.hideLoading();
-          $state.go('menu2', {}, { location: "replace" });
+          $state.go('welcome', {}, { location: "replace" });
 
         },
           function (error) {
@@ -86,7 +86,7 @@ angular.module('app.controllers', [])
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        sharedUtils.showAlert("Please note", "Authentication Error");
+        // sharedUtils.showAlert("Please note", "Authentication Error");
       });
 
       
@@ -138,7 +138,7 @@ angular.module('app.controllers', [])
           $ionicSideMenuDelegate.canDragContent(true);  // Sets up the sideMenu dragable
           $rootScope.extras = true;
           sharedUtils.hideLoading();
-          $state.go('menu2', {}, { location: "replace" });
+          $state.go('welcome', {}, { location: "replace" });
 
         }, function (error) {
           sharedUtils.hideLoading();
@@ -780,7 +780,56 @@ angular.module('app.controllers', [])
     
                
     };
-
-   
-
  })
+
+ .controller('welcomeCtrl', function ($scope, $rootScope, $ionicSideMenuDelegate, fireBaseData, $state,
+  $ionicHistory, $firebaseArray, sharedCartService, sharedUtils) {
+
+  //Check if user already logged in
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      $scope.user_info = user; //Saves data to user_info
+    } else {
+
+      $ionicSideMenuDelegate.toggleLeft(); //To close the side bar
+      $ionicSideMenuDelegate.canDragContent(false);  // To remove the sidemenu white space
+
+      $ionicHistory.nextViewOptions({
+        historyRoot: true
+      });
+      $rootScope.extras = false;
+      sharedUtils.hideLoading();
+      $state.go('tabsController.login', {}, { location: "replace" });
+
+    }
+  });
+
+  // On Loggin in to menu page, the sideMenu drag state is set to true
+  $ionicSideMenuDelegate.canDragContent(true);
+  $rootScope.extras = true;
+
+  // When user visits A-> B -> C -> A and clicks back, he will close the app instead of back linking
+  $scope.$on('$ionicView.enter', function (ev) {
+    if (ev.targetScope !== $scope) {
+      $ionicHistory.clearHistory();
+      $ionicHistory.clearCache();
+    }
+  });
+
+
+
+  $scope.loadMenu = function () {
+    sharedUtils.showLoading();
+    $scope.menu = $firebaseArray(fireBaseData.refMenu());
+    sharedUtils.hideLoading();
+  }
+
+  $scope.showProductInfo = function (id) {
+
+  };
+  $scope.addToCart = function (item) {
+    console.log(item);
+    sharedCartService.add(item);
+  };
+
+})

@@ -1,0 +1,83 @@
+<ion-view style="" class=" " id="welcomepage" title="Welcome !" >
+        <ion-content  padding="false" ng-init="loadMenu()">
+            <form name="settingForm"  id="settings-form">
+
+                <ion-list class=" " >
+        
+                  <!-- Profile Cover Page -->
+                  <div class="profile-nav col-md-7" style="background-color: rgb(51, 33, 11)">
+                    <div class="panel">
+                      <div class="user-heading-welcome">
+                        <a href="#">
+                            <img ng-src="img/app-icon.png" >
+                        </a>
+                      
+                      </div>
+                      
+                    </div>
+                  </div>
+        
+                <div class="support-nav">
+                   <div class="user-heading">Wheelstracers India Food Ltd</div>
+                  </div>
+                  <div class="list card" >
+                    <div style="min-height: 30px;" class="item item-divider">
+                       Grab 30 % off when you order your First Order
+                    </div>
+                      <center>  Use Code : TRACER2018 </center>
+                     
+                    <div class="item item-body" >        
+                      <span></span>
+                    </div>
+                  </div>
+               
+                <div class="row" ng-repeat="item in menu"  style="border-top: 1px solid #999;">
+
+
+                    <div class="col col-50 " ng-if="$index < menu.length" style="padding:1px;border-right:1px solid #999" >
+              
+                        <div class="item item-image" style="border-width: 0px; border-style: none;">
+                        <img ng-click="showProductInfo(menu[$index].$id)" ng-src="{{'img/fk/'+ menu[$index].image +'.jpg'}}" width="100%" />
+                        </div>
+              
+                        <a class="item item-icon-right assertive" href="javascript:void(0)"  style="border-width: 0px; border-style: none;" >
+                        <p ng-click="showProductInfo(menu[$index].$id)" style="font-size: 12px;text-align:left;">
+                          {{menu[$index].name}} <br/>
+                          <span style="font-weight: bold;color: black;">&#8377; {{menu[$index].price}}</span>
+                        </p>
+                        <i style="font-size: 25px; margin-right:0px;right:0px;"  ng-click="addToCart(menu[$index])" class="icon ion-ios-cart"></i>
+                        </a>
+              
+                    </div>
+              
+              
+                    <div class="col col-50 " ng-if="$index+1  < menu.length" style="padding:1px;">
+              
+                        <div class="item item-image" style="border-width: 0px; border-style: none;">
+                        <img ng-click="showProductInfo(menu[$index+1].$id)" ng-src="{{'img/fk/'+ menu[$index+1].image +'.jpg'}}" width="100%" />
+                        </div>
+              
+                        <a class="item item-icon-right assertive" href="javascript:void(0)"  style="border-width: 0px; border-style: none;" >
+                        <p ng-click="showProductInfo(menu[$index+1].$id)" style="font-size: 12px;text-align:left;">
+                          {{menu[$index+1].name}} <br/>
+                          <span style="font-weight: bold;color: black;">&#8377; {{menu[$index+1].price}}</span>
+                        </p>
+                        <i style="font-size: 25px;right: 0px;"  ng-click="addToCart(menu[$index+1])" class="icon ion-ios-cart"></i>
+                        </a>
+              
+              
+                    </div>
+              
+                  </div>
+        
+        
+        
+                </ion-list>
+        
+              </form>
+    
+      
+    
+        </ion-content>
+      </ion-view>
+    

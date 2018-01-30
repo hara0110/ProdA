@@ -1,6 +1,6 @@
 {
   "name": "wheelstracer",
-  "version": "1.1.1",
+  "version": "1.0.0",
   "description": "wheelstracer",
   "dependencies": {
     "cordova-android": "7.0.0",
@@ -51,6 +51,9 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-statusbar": {},
       "ionic-plugin-keyboard": {}
-    }
+    },
+    "platforms": [
+      "android"
+    ]
   }
 }
